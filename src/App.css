@@ -1,0 +1,58 @@
+.custom-width-section {
+    width: 80%;
+    margin: 0 auto; 
+}
+
+/* .custom-image-ratio {
+    height: 100%;
+    object-fit: cover; 
+  } */
+  
+  .heart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: blue;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.styled-section {
+    background-image: url('./images/Neophyte-garment-images\ \(7\).webp'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.content {
+    text-align: center;
+    color: #fff;
+}
+
+.content h2{
+    font-size: 5em;
+}
+
+.product-image{
+    height: 300px !important;
+    object-fit: cover;
+}
+
+.in-store{
+    background-color: #A8BF95;
+}
+
+.reco {
+    font-size: 4em;
+    line-height: 1;
+}
+
+.best-sellers {
+    font-size: 2em;
+}
