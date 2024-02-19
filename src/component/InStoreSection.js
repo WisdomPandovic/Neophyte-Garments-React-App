@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import product1 from '../images/IMG_0382_460x.webp';
+import { NeophyteContext } from "./Context/NeophyteContext";
 
 const InStoreSection = () => {
+
+    const [products, setProducts] = useState([]);
+    const { addToCart } = useContext(NeophyteContext);
+
+    useEffect(() => {
+      const productIds = ["65a91a283b88d36925ae1eab", "65a91ddf3b88d36925ae1ed4"];
+  
+      const fetchProducts = async () => {
+        try {
+          const fetchedProducts = [];
+  
+          for (const productId of productIds) {
+            const response = await fetch(`http://159.65.21.42:9000/product/${productId}`);
+            const product = await response.json();
+            fetchedProducts.push(product);
+          }
+  
+          setProducts(fetchedProducts);
+          console.log("Fetched products:", fetchedProducts);
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      };
+  
+      fetchProducts();
+    }, []);
+
     return (
         <div>
             <section className="in-store">
@@ -15,7 +43,7 @@ const InStoreSection = () => {
             <section className="container mt-5 mb-5">
             <div className="row">
                 <div className="col-lg-6">
-                    <img src={product1} className="img-fluid rounded-4 " alt="Product 1" />
+                    <img src={product1} className="img-fluid rounded-4 mb-3" alt="Product 1" />
                 </div>
         
                 <div className="col-lg-6">
@@ -42,6 +70,44 @@ const InStoreSection = () => {
                     <button className="btn btn-primary w-100">Add to Cart</button>
                 </div>
             </div>
+            </section>
+
+            <section className="container mt-5 mb-5">
+                <div className="row">
+                    {products.map((product) => (
+                        <div key={product.id} className='mb-5'>
+                            <div className='row'>
+                                <div className="col-lg-6">
+                                    <img src={`http://159.65.21.42:9000${product.image}`} alt={product.name} className='img-fluid rounded-4 mb-3' />
+                                </div>
+        
+                                <div className="col-lg-6">
+                                   <h3>{product.name}</h3>
+                                   <p>{product.description}</p>
+                                   <p>₦{product.price}</p>
+        
+                                    <div className="mb-3">
+                        <select className="form-select" id="sizeSelect" style={{ backgroundColor: '#D9D9D9' }}>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                                    </div>
+        
+                                    <div className="mb-3">
+                        <select className="form-select" id="colorSelect" style={{ backgroundColor: '#D9D9D9' }}>
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                        </select>
+                                    </div>
+        
+                                    <button className="btn btn-primary w-100" onClick={() => addToCart(product)}>Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </section>
         </div>
     );

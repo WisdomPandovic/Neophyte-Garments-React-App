@@ -5,7 +5,7 @@ import product2 from '../images/Neophyte-women-wedding-dress (6).webp';
 import product3 from '../images/Neophyte-loafers (12).jpg';
 import product4 from '../images/Neophyte-man-dress-suit (1).webp';
 
-const NewArrivals = () => {
+const  Loafers = () => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -20,7 +20,7 @@ const NewArrivals = () => {
                 const data = await response.json();
                 
                 // Filter products by category
-                const neophyteProducts = data.filter(product => product.category === "Neophytegarments");
+                const neophyteProducts = data.filter(product => product.category === "Neophytegarments-Loafers");
                 
                 // Sort products by creation date (assuming the date is stored in a property named "createdAt")
                 neophyteProducts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -49,9 +49,9 @@ const NewArrivals = () => {
     
     return (
         <div>
-            <div className="mt-5" id="newIn">
+            <div className="mt-5" id="loafers">
           <div className="custom-width-section">
-            <p className="best-sellers fs-3">New Arrivals</p>
+            <p className="best-sellers fs-3">Loafers</p>
             <div className="row">
               {products.map((product) => (
                 <div key={product.id} className="col-lg-3 col-md-6 mb-4">
@@ -79,4 +79,4 @@ const NewArrivals = () => {
     );
 }
 
-export default NewArrivals;
+export default Loafers;

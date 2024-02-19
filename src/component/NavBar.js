@@ -47,12 +47,19 @@
 // export default NavBar;
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './NavBar.css'; 
 import { FaLinkedin, FaFacebook, FaTwitter, FaUser, FaShoppingCart } from 'react-icons/fa';
+import { NeophyteContext } from './Context/NeophyteContext';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { isLoggedIn } = useContext(NeophyteContext);
+  const navigate = useNavigate();
+
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +73,12 @@ const NavBar = () => {
     };
   }, []);
 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   return (
     <nav className={`navbar navbar-expand-lg navbar-light fixed-top ${scrolled ? 'bg-dark' : 'bg-light'}`}>
       <div className="container">
@@ -76,21 +89,37 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className={`navbar-nav mx-auto ${scrolled ? 'text-white' : 'text-dark'}`}>
-            <a href="/" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>Men</a>
-            <a href="/" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>Women</a>
-            <a href="/" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>Sneakers</a>
-            <a href="/" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>Shop</a>
-            <a href="/" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>Collection</a>
-            <a href="/" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>About</a>
+            <a href="/MenCollectionPage" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>Men</a>
+            <a href="/WomenWear" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>Women</a>
+            <a href="/SneakersCollection" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>Sneakers</a>
+            <a href="/ShopWears" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>Shop</a>
+            <div className="nav-item dropdown hoverable-dropdown">
+            <a className={`nav-link dropdown-toggle ${scrolled ? 'text-white' : 'text-dark'}`} href="#" role="button" onClick={toggleDropdown}>
+                Collections
+              </a>
+              <div className={`dropdown-menu ${dropdownOpen ? 'show' : ''}`}>
+                <a className="dropdown-item" href="/SwimSuit"><p className="text-uppercase">Swim Suit</p></a>
+                <a className="dropdown-item" href="/Jewelry"><p className="text-uppercase">Jewelry</p></a>
+                <a className="dropdown-item" href="/WeddingCollection"><p className="text-uppercase">Wedding Collection</p></a>
+              </div>
+            </div>
+            <a href="/About" className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`}>About</a>
+           
           </div>
           <div className={`social-icons d-lg-none ${scrolled ? 'text-white' : 'text-dark'}`}>
-            <a className="nav-link mx-2" href="#" id="userLink"><FaUser /></a>
-            <a className="nav-link" href="cart.html"><FaShoppingCart /></a>
+            <a className="nav-link mx-2" href="/UserInformation" id="userLink"><FaUser /></a>
+            <a className="nav-link" href="/cart"><FaShoppingCart /></a>
           </div>
         </div>
         <div className={`social-icons d-none d-lg-flex ${scrolled ? 'text-white' : 'text-dark'}`}>
-          <a className="nav-link mx-2" href="#" id="userLink"><FaUser /></a>
-          <a className="nav-link" href="cart.html"><FaShoppingCart /></a>
+          {/* <a className="nav-link mx-2" href="/UserInformation" id="userLink"><FaUser /></a> */}
+        
+          {isLoggedIn ? (
+                                <Link className="nav-link mx-2" to="/UserInformation" id="userLink"><FaUser /></Link>
+                            ) : (
+                                <Link className="nav-link mx-2" to="/SignUpPage" id="userLink"><FaUser /></Link>
+                            )}
+                              <a className="nav-link" href="/cart"><FaShoppingCart /></a>
         </div>
       </div>
     </nav>

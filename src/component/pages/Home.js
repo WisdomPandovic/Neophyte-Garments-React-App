@@ -4,6 +4,7 @@ import RecommendedSales from "../RecommendedSales";
 import ProductsSection from "../ProductsSection";
 import InStoreSection from "../InStoreSection";
 import NewArrivals from "../NewArrivals";
+import BestSellers from "../BestSellers";
 import Footer from "../Footer";
 function Home (){
     return(
@@ -12,6 +13,7 @@ function Home (){
            
         <MySlider/>
         <RecommendedSales/>
+        <BestSellers/>
         <ProductsSection/>
         <InStoreSection/>
         <NewArrivals/>
