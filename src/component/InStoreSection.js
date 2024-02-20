@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import product1 from '../images/IMG_0382_460x.webp';
 import { NeophyteContext } from "./Context/NeophyteContext";
+import { ToastContainer } from 'react-toastify';
+
 
 const InStoreSection = () => {
 
@@ -109,6 +111,7 @@ const InStoreSection = () => {
                     ))}
                 </div>
             </section>
+            <ToastContainer />
         </div>
     );
 }

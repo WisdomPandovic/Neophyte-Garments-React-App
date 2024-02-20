@@ -335,12 +335,25 @@ form input {
     margin-top: 10px;
 }
 
+.category-name{
+    font-size: 15px;
+}
+
 @media (max-width: 767px) {
     .overlay-text h2 {
         font-size: 1.5rem;
     }
 }
 
+.cart-delete {
+    background-color: red !important;
+    padding: 10px 30px !important;
+    color: #fff !important;
+}
+
+.cart-count{
+font-size: 10px;
+}
 
 @media (max-width: 576px) {
     .contact-section{

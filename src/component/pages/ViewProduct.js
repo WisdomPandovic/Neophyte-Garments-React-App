@@ -4,11 +4,23 @@ import BestSellers from "../BestSellers";
 import { useParams } from "react-router-dom";
 import { NeophyteContext } from "../Context/NeophyteContext";
 import Footer from "../Footer";
+// import { useDispatch } from 'react-redux';
+// import { addToCart } from '../../actions/cartActions';
+import { ToastContainer } from 'react-toastify';
 
 function ViewProduct() {
     const { _id } = useParams();
     const [product, setProduct] = useState(null);
-    const { addToCart } = useContext(NeophyteContext);
+    const { addToCart} = useContext(NeophyteContext);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    // const dispatch = useDispatch();
+
+//   const handleAddToCart = () => {
+//     console.log("Adding product to cart:", product);
+//     dispatch(addToCart(product));
+//     alert("Product added to cart");
+//   };
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -20,7 +32,9 @@ function ViewProduct() {
                 const productData = await response.json();
                 setProduct(productData);
             } catch (error) {
-                console.error('Error fetching product:', error);
+                setError(error.message);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -29,8 +43,17 @@ function ViewProduct() {
         }
     }, [_id]);
 
-    if (!product) {
-        return <div>Loading...</div>; // You can replace this with a loading spinner or skeleton UI
+    const handleAddToCart = () => {
+        addToCart(product); // Call addToCart from context
+        // Display a success toast notification
+    };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
     }
 
     return (
@@ -41,7 +64,7 @@ function ViewProduct() {
                 <div className="mt-5">
                     <h2 className="shop-p1x">{product.name}</h2>
                     <p className="amt">₦ {product.price}</p>
-                    <button className="btn btn-primary text-uppercase custom-add-to-cart rounded-0" onClick={() => addToCart(product)}>Add to Cart</button>
+                    <button className="btn btn-primary text-uppercase custom-add-to-cart rounded-0" onClick={handleAddToCart}>Add to Cart</button>
                 </div>
             </div>
             <div className="container mt-5 mb-5">
@@ -63,6 +86,7 @@ function ViewProduct() {
             </div>
             <BestSellers/>
             <Footer />
+            <ToastContainer />
         </div>
     );
 }

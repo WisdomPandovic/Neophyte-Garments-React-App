@@ -1,5 +1,10 @@
 import NavBar from "../NavBar";
 import Footer from "../Footer";
+import WeddingCollections from "../WeddingCollections";
+import OnePieceSwimSuit from "../OnePieceSwimSuit";
+import TwoPieceSwimSuit  from "../TwoPieceSwimSuit";
+import image6 from '../../images/swimsuit-ad.webp';
+import image7 from '../../images/swimsuit-ad-2.webp';
 
 function WomenWear(){
     return(
@@ -18,6 +23,20 @@ function WomenWear(){
                 {/* <p>Sorry, there are no women's wear products at the moment.</p> */}
             </div>
             </div>
+
+            <WeddingCollections/>
+            <div className="container-fluid py-5">
+                <div className="row">
+                    <div className="col-lg-6 col-md-126 mb-1">
+                        <img src={image6} className="img-fluid fixed-height" alt="shop Image" />
+                    </div>
+                    <div className="col-lg-6 col-md-12 mb-1">
+                        <img src={image7} className="img-fluid fixed-height" alt="shop Image" />
+                    </div>
+                </div>
+            </div>
+            <OnePieceSwimSuit/>
+            <TwoPieceSwimSuit />
             <Footer/>
 
         </div>

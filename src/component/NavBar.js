@@ -1,65 +1,14 @@
-// import React from 'react';
-// import './NavBar.css'; 
-// import {Link} from 'react-router-dom';
-// import { FaLinkedin, FaFacebook, FaTwitter } from 'react-icons/fa';
-
-// const NavBar = () => {
-//   return (
-//     <div >
-//         <nav id="navbar" className="navbar navbar-expand-lg navbar-light bg-light bg-transparent fixed-top">
-//         <div className="container">
-//             <Link to="/" className='navbar-brand'><h1>Wisdom.Dev</h1></Link>
-
-//             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-//                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-//                 <span className="navbar-toggler-icon"></span>
-//             </button>
-
-//             <div className="collapse navbar-collapse" id="navbarNav">
-//                 <div className="navbar-nav mx-auto">
-//                     <Link to="/" className='nav-link'>Home</Link>
-//                     <Link to="/" className='nav-link'>About</Link>
-//                     <Link to="/" className='nav-link'>Projects</Link>
-//                     <Link to="/" className='nav-link'>Contact</Link>
-//                     <Link to="/" className='nav-link'>Home</Link>
-//                 </div>
-
-//                 <div className="social-icons d-lg-none">
-//                 <a href="https://linkedin.com/in/wisdom-okezie-onwuchekwa" target="_blank" className="social-icon"><FaLinkedin /></a>
-//               <a href="https://facebook.com/wisdom-okezie-onwuchekwa" target="_blank" className="social-icon"><FaFacebook /></a>
-//               <a href="https://twitter.com/WisdomOkezie_" target="_blank" className="social-icon"><FaTwitter /></a>
-//                 </div>
-//             </div>
-
-//             <div className="social-icons d-none d-lg-flex">
-              
-//             <a href="https://linkedin.com/in/wisdom-okezie-onwuchekwa" target="_blank" className="social-icon"><FaLinkedin /></a>
-//               <a href="https://facebook.com/wisdom-okezie-onwuchekwa" target="_blank" className="social-icon"><FaFacebook /></a>
-//               <a href="https://twitter.com/WisdomOkezie_" target="_blank" className="social-icon"><FaTwitter /></a>
-//             </div>
-//         </div>
-//     </nav>
-      
-//     </div>
-//   );
-// }
-
-// export default NavBar;
-
-
 import React, { useState, useEffect, useContext } from 'react';
 import './NavBar.css'; 
-import { FaLinkedin, FaFacebook, FaTwitter, FaUser, FaShoppingCart } from 'react-icons/fa';
+import { FaUser, FaShoppingCart } from 'react-icons/fa';
 import { NeophyteContext } from './Context/NeophyteContext';
 import { Link, useNavigate } from 'react-router-dom';
 
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const { isLoggedIn } = useContext(NeophyteContext);
+  const { isLoggedIn, cart } = useContext(NeophyteContext);
   const navigate = useNavigate();
-
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,19 +56,30 @@ const NavBar = () => {
            
           </div>
           <div className={`social-icons d-lg-none ${scrolled ? 'text-white' : 'text-dark'}`}>
-            <a className="nav-link mx-2" href="/UserInformation" id="userLink"><FaUser /></a>
-            <a className="nav-link" href="/cart"><FaShoppingCart /></a>
+          {isLoggedIn ? (
+            <Link className="nav-link mx-2" to="/UserInformation" id="userLink"><FaUser /></Link>
+            ) : (
+              <Link className="nav-link mx-2" to="/SignUpPage" id="userLink"><FaUser /></Link>
+            )
+          }
+          <a className="nav-link d-flex" href="/cart">
+            <div><FaShoppingCart /></div> 
+            <h2 className='cart-count'>{cart.length}</h2>
+          </a>
           </div>
         </div>
         <div className={`social-icons d-none d-lg-flex ${scrolled ? 'text-white' : 'text-dark'}`}>
-          {/* <a className="nav-link mx-2" href="/UserInformation" id="userLink"><FaUser /></a> */}
         
           {isLoggedIn ? (
-                                <Link className="nav-link mx-2" to="/UserInformation" id="userLink"><FaUser /></Link>
-                            ) : (
-                                <Link className="nav-link mx-2" to="/SignUpPage" id="userLink"><FaUser /></Link>
-                            )}
-                              <a className="nav-link" href="/cart"><FaShoppingCart /></a>
+            <Link className="nav-link mx-2" to="/UserInformation" id="userLink"><FaUser /></Link>
+            ) : (
+              <Link className="nav-link mx-2" to="/SignUpPage" id="userLink"><FaUser /></Link>
+            )
+          }
+          <a className="nav-link d-flex" href="/cart">
+            <div><FaShoppingCart /></div> 
+            <h2 className='cart-count'>{cart.length}</h2>
+          </a>             
         </div>
       </div>
     </nav>
@@ -127,5 +87,3 @@ const NavBar = () => {
 }
 
 export default NavBar;
-
-

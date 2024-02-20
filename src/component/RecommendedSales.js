@@ -42,13 +42,13 @@ const RecommendedSales = () => {
                     <div className="col-lg-6">
                         <div className="row">
                             <div className="col-lg-4 mb-2">
-                                <a className="d-block bg-dark text-white p-3 text-center text-decoration-none rounded" href="#">All Categories</a>
+                                <a className="d-block bg-dark text-white p-3 text-center text-decoration-none rounded" href="/ShopWears">All Categories</a>
                             </div>
                             <div className="col-lg-4 mb-2">
-                                 <a className="d-block bg-secondary text-white p-3 text-center text-decoration-none rounded" href="women-wear.html">Women</a>
+                                 <a className="d-block bg-secondary text-white p-3 text-center text-decoration-none rounded" href="/WomenWear">Women</a>
                             </div>
                             <div className="col-lg-4 mb-2">
-                                <a className="d-block bg-success text-white p-3 text-center text-decoration-none rounded" href="men-collection.html">Men</a>
+                                <a className="d-block bg-success text-white p-3 text-center text-decoration-none rounded" href="MenCollectionPage">Men</a>
                             </div>
                             <div className="col-lg-4 mb-2">
                                 <a className="d-block bg-danger text-white p-3 text-center text-decoration-none rounded" href="#">Collection 2024</a>

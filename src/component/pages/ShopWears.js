@@ -1,8 +1,11 @@
 import React from 'react';
 import product1 from '../../images/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdHAyMjktcG9zdGVyLTA1LTQ1Mi1wcy5qcGc.webp'
 import NavBar from "../NavBar";
+import Footer from "../Footer";
 import NewArrivals from "../NewArrivals";
 import ProductDisplay from "../ProductDisplay";
+import image6 from '../../images/swimsuit-ad.webp';
+import image7 from '../../images/swimsuit-ad-2.webp';
 
 function ShopWears() {
     return (
@@ -19,7 +22,18 @@ function ShopWears() {
             </section>
 
             <NewArrivals/>
+            <div className="container-fluid py-5">
+                <div className="row">
+                    <div className="col-lg-6 col-md-126 mb-1">
+                        <img src={image6} className="img-fluid fixed-height" alt="shop Image" />
+                    </div>
+                    <div className="col-lg-6 col-md-12 mb-1">
+                        <img src={image7} className="img-fluid fixed-height" alt="shop Image" />
+                    </div>
+                </div>
+            </div>
             <ProductDisplay/>
+            <Footer/>
         </div>
       
     );
