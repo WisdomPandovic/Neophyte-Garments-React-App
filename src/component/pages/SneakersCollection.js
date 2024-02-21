@@ -58,10 +58,8 @@ function SneakersCollection() {
                         <p className="price">${product.price}</p>
                       </div>
                       <div className="d-flex align-items-center bg-success p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
-                                        <a href={`/ViewProduct/${product._id}`} className="text-white">
-                                            <FaArrowRight />
-                                        </a>
-                                    </div>
+                        <a href={`/ViewProduct/${product._id}`} className="text-white"><FaArrowRight /></a>
+                      </div>
                     </div>
                   </div>
                 </div>

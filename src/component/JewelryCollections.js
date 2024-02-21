@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FaHeart, FaArrowRight } from 'react-icons/fa';
-import product1 from '../images/Neophyte-sneakers (13).webp';
-import product2 from '../images/Neophyte-women-wedding-dress (6).webp';
-import product3 from '../images/Neophyte-loafers (12).jpg';
-import product4 from '../images/Neophyte-man-dress-suit (1).webp';
 
 const  JewelryCollections = () => {
     const [products, setProducts] = useState([]);
@@ -19,10 +15,8 @@ const  JewelryCollections = () => {
             }
             const data = await response.json();
       
-            // Filter products by category
             const neophyteProducts = data.filter(product => product.category === "Neophyte-Jewelry");
       
-            // Sort products by creation date (assuming the date is stored in a property named "createdAt")
             neophyteProducts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       
             // **Remove the limit to show all products:**
@@ -63,10 +57,8 @@ const  JewelryCollections = () => {
                         <p className="price">${product.price}</p>
                       </div>
                       <div className="d-flex align-items-center bg-success p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
-                                        <a href={`/ViewProduct/${product._id}`} className="text-white">
-                                            <FaArrowRight />
-                                        </a>
-                                    </div> 
+                        <a href={`/ViewProduct/${product._id}`} className="text-white"><FaArrowRight /></a>
+                      </div> 
                     </div>
                   </div>
                 </div>

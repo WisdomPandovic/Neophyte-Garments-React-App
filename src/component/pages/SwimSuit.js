@@ -2,7 +2,6 @@ import NavBar from "../NavBar";
 import image1 from '../../images/swimsuit-gals.jpg';
 import image2 from '../../images/NeophyteGarment-SwimSuit-one-piece  (1).jpg';
 import image3 from '../../images/men-swimsuit.jpg';
-import image4 from '../../images/IMG_0382_460x.webp';
 import image5 from '../../images/NeophyteGarment-SwimSuit-one-piece  (3).webp';
 import image6 from '../../images/swimsuit-ad.webp';
 import image7 from '../../images/swimsuit-ad-2.webp';
@@ -29,28 +28,28 @@ const SwimSuit = () => {
             </section>
 
             <section className="image-grid-section mt-5">
-            <div className="container pt-5">
-                <div className="row">
-                    <div className="col-md-4 mb-4">
-                        <div className="image-grid-item">
-                            <img src={image5} alt="Image 1" className="img-fluid" />
-                            <a href="#onepiece" className="grid-link">One Piece</a>
+                <div className="container pt-5">
+                   <div className="row">
+                        <div className="col-md-4 mb-4">
+                            <div className="image-grid-item">
+                                <img src={image5} alt="Image 1" className="img-fluid" />
+                                <a href="#onepiece" className="grid-link">One Piece</a>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-md-4 mb-4">
-                        <div className="image-grid-item">
-                            <img src={image2} alt="Image 2" className="img-fluid" />
-                            <a href="#twopiece" className="grid-link">Two Piece</a>
+                        <div className="col-md-4 mb-4">
+                            <div className="image-grid-item">
+                                <img src={image2} alt="Image 2" className="img-fluid" />
+                                <a href="#twopiece" className="grid-link">Two Piece</a>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-md-4 mb-4">
-                        <div className="image-grid-item">
-                            <img src={image3} alt="Image 4" className="img-fluid" />
-                            <a href="#menswimsuit" className="grid-link">Men Swim Suit</a>
+                        <div className="col-md-4 mb-4">
+                            <div className="image-grid-item">
+                                <img src={image3} alt="Image 4" className="img-fluid" />
+                                <a href="#menswimsuit" className="grid-link">Men Swim Suit</a>
+                            </div>
                         </div>
-                    </div>
+                   </div>
                 </div>
-            </div>
             </section>
             
             <OnePieceSwimSuit/>

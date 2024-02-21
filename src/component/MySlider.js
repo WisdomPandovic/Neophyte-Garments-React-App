@@ -23,7 +23,6 @@ const MySlider = () => {
           <Carousel.Item>
              <img className="d-block w-100 custom-aspect-ratio" src={slide2} alt="Second slide"/>
             <Carousel.Caption>
-              {/* <h3>Second slide label</h3> */}
               <p>Crafted with boundless affection and innate creative skill, these designs intertwine with fashion, meant to be embraced as a part of daily life by those who exude self-assured excellence and even those aspiring to do so.</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -31,7 +30,6 @@ const MySlider = () => {
           <Carousel.Item>
             <img className="d-block w-100 custom-aspect-ratio" src={slide3} alt="Third slide"/>
             <Carousel.Caption>
-              {/* <h3>Third slide label</h3> */}
               <p>Welcome to a shop where every piece tells a story, and your style takes center stage. Shop with confidence, and let your fashion journey unfold.</p>
             </Carousel.Caption>
           </Carousel.Item>

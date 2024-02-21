@@ -1,6 +1,3 @@
-/* ArrowSlider.css */
-
-/* Style for the slider container */
 .arrow-slider-container {
   position: absolute;
   top: 50%;
@@ -8,32 +5,25 @@
   transform: translate(-50%, -50%);
 }
 
-/* Style for the custom previous arrow */
 .prev-arrow {
   position: absolute;
-  top: 10px; /* Adjust the distance from the top edge */
-  left: 10px; /* Adjust the distance from the left edge */
+  top: 10px; 
+  left: 10px; 
   transform: translateY(-50%);
   cursor: pointer;
-  /* Add additional styles for the arrow */
 }
 
-/* Style for the custom next arrow */
 .next-arrow {
   position: absolute;
-  top: 10px; /* Adjust the distance from the top edge */
-  right: 10px; /* Adjust the distance from the right edge */
+  top: 10px;
+  right: 10px;
   transform: translateY(-50%);
   cursor: pointer;
-  /* Add additional styles for the arrow */
 }
 
-/* Style for the container with background image */
 .slider-background {
   position: relative;
-  /* Set background image */
   background-image: url('/src/images/19Nkunzi\ Jacket.webp');
-  /* Adjust background size, position, and other properties as needed */
   background-size: cover;
   background-position: center;
   color: aliceblue;
@@ -41,10 +31,9 @@
 }
 
 .custom-aspect-ratio {
-  aspect-ratio: 16 / 7; /* Adjust the aspect ratio as needed */
+  aspect-ratio: 16 / 7; 
 }
 
 .arrow-slider-contain{
 margin-top: 70px;
 }
-

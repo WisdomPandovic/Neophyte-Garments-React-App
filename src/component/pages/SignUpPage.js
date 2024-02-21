@@ -57,28 +57,27 @@ function SignUpPage() {
                                 <div className="signin-2 pb-3">If you already have a NEOPHYTE account, please sign in. We'll use your existing details for a speedier checkout.</div>
                             </div>
                             <form className="signUp" onSubmit={submitForm}>
-    <div className="form-group">
-        <input type="text" name="name" value={user.name} onChange={handleInputChange} className="form-control" placeholder="Your Name*" required />
-        {errors.name && <span className='span'>{errors.name}</span>}
-    </div>
-    <div className="form-group">
-        <input type="text" name="email" value={user.email} onChange={handleInputChange} className="form-control" placeholder="Email Address*" required />
-        {errors.email && <span className='span'>{errors.email}</span>}
-    </div>
-    <div className="form-group">
-        <input type="text" name="phone" value={user.phone} onChange={handleInputChange} className="form-control" placeholder="Phone Number*" required />
-        {errors.phone && <span className='span'>{errors.phone}</span>}
-    </div>
-    <div className="form-group">
-        <input type="password" name="password" value={user.password} onChange={handleInputChange} className="form-control" placeholder="Password*" required />
-        {errors.password && <span className='span'>{errors.password}</span>}
-    </div>
-    <div className="text-center signup-1 d-flex justify-content-between">
-        <button type="submit" className="btn btn-primary signin-btn">SIGN UP</button>
-        <a href="/SignInPage">ALREADY HAVE AN ACCOUNT?</a>
-    </div>
-</form>
-
+                                <div className="form-group">
+                                    <input type="text" name="name" value={user.name} onChange={handleInputChange} className="form-control" placeholder="Your Name*" required />
+                                    {errors.name && <span className='span'>{errors.name}</span>}
+                                </div>
+                                <div className="form-group">
+                                    <input type="text" name="email" value={user.email} onChange={handleInputChange} className="form-control" placeholder="Email Address*" required />
+                                    {errors.email && <span className='span'>{errors.email}</span>}
+                                </div>
+                                <div className="form-group">
+                                    <input type="text" name="phone" value={user.phone} onChange={handleInputChange} className="form-control" placeholder="Phone Number*" required />
+                                    {errors.phone && <span className='span'>{errors.phone}</span>}
+                                </div>
+                                <div className="form-group">
+                                    <input type="password" name="password" value={user.password} onChange={handleInputChange} className="form-control" placeholder="Password*" required />
+                                    {errors.password && <span className='span'>{errors.password}</span>}
+                                </div>
+                                <div className="text-center signup-1 d-flex justify-content-between">
+                                    <button type="submit" className="btn btn-primary signin-btn">SIGN UP</button>
+                                    <a href="/SignInPage">ALREADY HAVE AN ACCOUNT?</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

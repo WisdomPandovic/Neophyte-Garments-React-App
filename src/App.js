@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './component/pages/Home';
 import MenCollectionPage from './component/pages/MenCollectionPage';
@@ -14,8 +14,10 @@ import Cart from './component/pages/Cart';
 import WomenWear from './component/pages/WomenWear';
 import SignInPage from './component/pages/SignInPage';
 import SignUpPage from './component/pages/SignUpPage';
-import './App.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
 import NeophyteProvider from "./component/Context/NeophyteContext";
 
 function App() {

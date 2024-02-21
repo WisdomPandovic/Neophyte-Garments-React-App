@@ -43,7 +43,6 @@ const MenCollectionPage = () => {
                 </div>
             </div>
             </section>
-            
             <MenTop/>
             <Accessories/>
             <Loafers/>

@@ -1,7 +1,6 @@
 import { useState, createContext, useEffect } from "react";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
 
 export const NeophyteContext = createContext();
 
@@ -32,6 +31,21 @@ function NeophyteProvider(props) {
     fetchInitialData(); // Call the async function within useEffect
   }, []);
 
+    // Function to access cart details
+    const getCartDetails = () => {
+      const cartCount = cart.length;
+      const subtotal = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+      const discount = -7000.00; // Fixed discount amount
+      const total = subtotal + discount; // Calculate total with fixed discount
+      return { cartCount, subtotal, discount, total };
+    };
+
+    // Function to handle checkout
+  const handleCheckout = () => {
+    alert("Redirecting to payment gateway for payment processing...");
+  };
+
+
   // Function to add a product to the cart
   const addToCart = async (product) => {
     let cartData = [...cart];
@@ -57,24 +71,49 @@ function NeophyteProvider(props) {
     }
   };
   
-  const removeFromCart = (product) => {
+  const removeFromCart = async (product) => {
     // Ask for confirmation
     if (window.confirm("Are you sure you want to remove this product?")) {
       try {
-        let initialCart = JSON.parse(localStorage.getItem("Neophyte-cart")) || [];
+        // Retrieve cart data from localStorage
+        let initialCart;
+        try {
+          initialCart = JSON.parse(localStorage.getItem("Neophyte-cart")) || [];
+        } catch (error) {
+          console.error("Error parsing cart data from localStorage:", error);
+          return; // Handle parsing error gracefully
+        }
+  
+        // Check initial cart content (optional)
+        console.log("Initial cart:", initialCart);
   
         // Filter out the product to be removed
         const updatedCart = initialCart.filter((item) => item._id !== product._id);
   
-        // Update cart state and localStorage **only if confirmed**
+        // Check filtered cart content (optional)
+        console.log("Updated cart:", updatedCart);
+  
+        // Update cart state
         setCart(updatedCart);
-        localStorage.setItem("Neophyte-cart", JSON.stringify(updatedCart));
+  
+        // Update localStorage
+        try {
+          await localStorage.setItem("Neophyte-cart", JSON.stringify(updatedCart));
+        } catch (error) {
+          console.error("Error saving cart data to localStorage:", error);
+          // Handle saving error gracefully
+        }
+  
+        console.log("Cart state updated, local storage updated");
       } catch (error) {
         console.error("Error removing product from cart:", error);
-        // Handle the error appropriately, e.g., display an error message to the user
+        // Handle other errors appropriately
       }
     }
   };
+  
+  
+  
   
   // Update localStorage whenever cart changes (no need for a separate function)
   useEffect(() => {
@@ -88,7 +127,7 @@ function NeophyteProvider(props) {
   }, [cart]);
 
   return (
-    <NeophyteContext.Provider value={{ cart, setCart, addToCart, removeFromCart, isLoggedIn, setIsLoggedIn, toast }}>
+    <NeophyteContext.Provider value={{ cart, setCart, addToCart, removeFromCart, isLoggedIn, setIsLoggedIn, toast,  getCartDetails,  handleCheckout,}}>
       {props.children}
     </NeophyteContext.Provider>
   );

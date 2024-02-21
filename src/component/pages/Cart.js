@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, {  useContext } from 'react';
 import NavBar from "../NavBar";
 import Footer from "../Footer";
 import { useNavigate } from 'react-router-dom';
 import { NeophyteContext } from "../Context/NeophyteContext";
 
 function Cart() {
-  const navigate = useNavigate(); // For dynamic routing
+  const navigate = useNavigate(); 
   const { cart, removeFromCart } = useContext(NeophyteContext);
 
   const handleStartShopping = () => {
-    navigate('/ShopWears'); // Use routing for dynamic link
+    navigate('/ShopWears'); 
   };
 
   return (

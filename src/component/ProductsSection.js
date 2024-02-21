@@ -25,7 +25,7 @@ const ProductsSection = () => {
           }
   
           setProducts(fetchedProducts);
-          console.log("Fetched products:", fetchedProducts);
+        //   console.log("Fetched products:", fetchedProducts);
         } catch (error) {
           console.error("Error fetching products:", error);
           setError(error);

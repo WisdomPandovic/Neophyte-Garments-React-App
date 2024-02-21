@@ -10,14 +10,13 @@ function Home (){
     return(
         <div>
             <NavBar/>
-           
-        <MySlider/>
-        <RecommendedSales/>
-        <BestSellers/>
-        <ProductsSection/>
-        <InStoreSection/>
-        <NewArrivals/>
-        <Footer/>
+            <MySlider/>
+            <RecommendedSales/>
+            <BestSellers/>
+            <ProductsSection/>
+            <InStoreSection/>
+            <NewArrivals/>
+            <Footer/>
         </div>
     )
 }

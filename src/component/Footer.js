@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaInstagram, FaYoutube, FaFacebook, FaTwitter, FaLinkedin, FaWeixin, FaSearch } from 'react-icons/fa';
-// import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import './Footer.css'; 
 
 const Footer = () => {

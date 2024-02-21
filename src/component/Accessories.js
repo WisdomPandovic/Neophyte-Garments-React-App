@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FaHeart, FaArrowRight } from 'react-icons/fa';
-import product1 from '../images/Neophyte-sneakers (13).webp';
-import product2 from '../images/Neophyte-women-wedding-dress (6).webp';
-import product3 from '../images/Neophyte-loafers (12).jpg';
-import product4 from '../images/Neophyte-man-dress-suit (1).webp';
 
 const  Accessories = () => {
     const [products, setProducts] = useState([]);

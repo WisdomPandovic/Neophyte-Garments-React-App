@@ -23,7 +23,7 @@ const InStoreSection = () => {
           }
   
           setProducts(fetchedProducts);
-          console.log("Fetched products:", fetchedProducts);
+        //   console.log("Fetched products:", fetchedProducts);
         } catch (error) {
           console.error("Error fetching products:", error);
         }
@@ -115,5 +115,4 @@ const InStoreSection = () => {
         </div>
     );
 }
-
 export default InStoreSection;

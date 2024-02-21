@@ -20,7 +20,7 @@ function BestSellers({ data }) {
           }
   
           setProducts(fetchedProducts);
-          console.log("Fetched products:", fetchedProducts);
+          // console.log("Fetched products:", fetchedProducts);
         } catch (error) {
           console.error("Error fetching products:", error);
           setError(error);
@@ -57,10 +57,8 @@ function BestSellers({ data }) {
                         <p className="price">${product.price}</p>
                       </div>
                       <div className="d-flex align-items-center bg-success p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
-                                        <a href={`/ViewProduct/${product._id}`} className="text-white">
-                                            <FaArrowRight />
-                                        </a>
-                                    </div>
+                        <a href={`/ViewProduct/${product._id}`} className="text-white"><FaArrowRight /></a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -70,7 +68,4 @@ function BestSellers({ data }) {
         </div>
       );
 }
-
-
-
 export default BestSellers;
