@@ -87,8 +87,17 @@ function NeophyteProvider(props) {
         // Check initial cart content (optional)
         console.log("Initial cart:", initialCart);
   
-        // Filter out the product to be removed
-        const updatedCart = initialCart.filter((item) => item._id !== product._id);
+        // Handle undefined product case
+        if (!product) {
+          console.error("Error: Product to remove is undefined.");
+          return; // Handle the case gracefully
+        }
+  
+        // Filter out the product to be removed with debugging logs
+        const updatedCart = initialCart.filter((item) => {
+          console.log("Comparing product:", item._id, "with to remove:", product._id);
+          return item._id !== product._id;
+        });
   
         // Check filtered cart content (optional)
         console.log("Updated cart:", updatedCart);
@@ -111,6 +120,7 @@ function NeophyteProvider(props) {
       }
     }
   };
+  
   
   
   
