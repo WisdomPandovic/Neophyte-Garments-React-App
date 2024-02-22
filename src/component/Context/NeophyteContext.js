@@ -42,7 +42,8 @@ function NeophyteProvider(props) {
 
     // Function to handle checkout
   const handleCheckout = () => {
-    alert("Redirecting to payment gateway for payment processing...");
+    // alert("Redirecting to payment gateway for payment processing...");
+    toast.success("Redirecting to payment gateway for payment processing...");
   };
 
 
@@ -114,6 +115,8 @@ function NeophyteProvider(props) {
         }
   
         console.log("Cart state updated, local storage updated");
+        // alert("Product successfully removed from your cart!");
+        toast.success("Product successfully removed from your cart!");
       } catch (error) {
         console.error("Error removing product from cart:", error);
         // Handle other errors appropriately

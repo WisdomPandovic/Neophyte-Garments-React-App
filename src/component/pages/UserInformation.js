@@ -5,6 +5,7 @@ import image1 from '../../images/profile-photo.jpg';
 import React, { useContext, useEffect, useState } from 'react';
 import { NeophyteContext } from '../Context/NeophyteContext';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 function UserInformation() {
     const navigate = useNavigate();
@@ -90,6 +91,7 @@ function UserInformation() {
                 </div>
             </div>
             <Footer/>
+            <ToastContainer />
         </div>
     );
 }

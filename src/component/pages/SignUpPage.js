@@ -3,6 +3,9 @@ import NavBar from "../NavBar";
 import Footer from "../Footer";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignUpPage() {
     const navigate = useNavigate();
@@ -28,16 +31,28 @@ function SignUpPage() {
             }
     
             console.log(response.data);
-            alert("Sign up successful.");
-            navigate("/SignInPage");
+            
+            // Check if the response contains an error indicating user already exists
+            if (response.data.error === "User exists") {
+                // alert("User already exists. Please log in.");
+                toast.error("User already exists. Please log in.");
+            } else {
+                // alert("Sign up successful.");
+                toast.success("Sign up successful.");
+                setTimeout(() => {
+                    navigate("/SignInPage");
+                }, 1000); 
+            }
         } catch (error) {
             console.error(error);
-            alert("Sign up unsuccessful. Please try again.");
+            // alert("Sign up unsuccessful. Please try again.");
+            toast.error("Sign up unsuccessful. Please try again.");
             if (error.response && error.response.data.errors) {
                 setErrors(error.response.data.errors);
             }
         }
     };
+    
     
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -83,6 +98,7 @@ function SignUpPage() {
                 </div>
             </div>
             <Footer />
+            <ToastContainer />
         </div>
     );
 }

@@ -351,13 +351,21 @@ font-size: 10px;
     margin-right: 10px;
 }
 
-@media (max-width: 767px) {
+.social-display{
+    display: none ;
+}
+
+@media (max-width: 769px) {
     .overlay-text h2 {
         font-size: 1.5rem;
     }
 
     .cart-count{
         color: #000;
+    }
+
+    .social-display{
+        display: block !important;
     }
 }
 

@@ -3,6 +3,8 @@ import NavBar from "../NavBar";
 import Footer from "../Footer";
 import { useNavigate } from 'react-router-dom';
 import { NeophyteContext } from "../Context/NeophyteContext";
+import { ToastContainer } from 'react-toastify';
+
 
 function Cart() {
   const navigate = useNavigate(); 
@@ -63,6 +65,7 @@ function Cart() {
       )}
       </div>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

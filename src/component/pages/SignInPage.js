@@ -3,6 +3,9 @@ import NavBar from "../NavBar";
 import Footer from "../Footer";
 import { useNavigate } from 'react-router-dom';
 import { NeophyteContext } from "../Context/NeophyteContext";
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignInPage() {
 
@@ -21,49 +24,59 @@ function SignInPage() {
         setFormData({ ...formData, [name]: value });
     };
 
-   const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Validation
-    const errors = {};
-    if (!formData.email.trim()) {
-        errors.email = 'Email is required';
-    }
-    if (!formData.password.trim()) {
-        errors.password = 'Password is required';
-    }
-    setErrors(errors);
-    // If no errors, submit the form
-    if (Object.keys(errors).length === 0) {
-        try {
-            setLoading(true);
-            // Make API request to sign in
-            const response = await fetch('http://159.65.21.42:9000/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-            if (!response.ok) {
-                throw new Error('Failed to sign in');
-            }
-            // Handle successful sign in
-            console.log('Sign in successful');
-            const resp = await response.json();
-            console.log(resp); // Log the response data
-            localStorage.setItem('Neophyte_USER', JSON.stringify(resp));
-            setIsLoggedIn(true);
-            let rawData = localStorage.getItem("Neophyte_USER");
-            let localData = JSON.parse(rawData);
-            setLoading(false);
-            navigate('/');
-        } catch (error) {
-            console.error('Sign in error:', error);
-            setLoading(false);
-            // Handle the error (e.g., display a notification to the user)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // Validation
+        const errors = {};
+        if (!formData.email.trim()) {
+            errors.email = 'Email is required';
         }
-    }
-};
+        if (!formData.password.trim()) {
+            errors.password = 'Password is required';
+        }
+        setErrors(errors);
+        // If no errors, submit the form
+        if (Object.keys(errors).length === 0) {
+            try {
+                setLoading(true);
+                // Make API request to sign in
+                const response = await fetch('http://159.65.21.42:9000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                const responseData = await response.json();
+                console.log('Response data:', responseData); // Log the response data for debugging
+                if (!response.ok) {
+                    throw new Error(responseData.message || 'Failed to sign in');
+                }
+                // Check if the response contains a user object or a token
+                if (!responseData._id || !responseData.email) {
+                    throw new Error('Invalid response data');
+                }
+                // Handle successful sign in
+                console.log('Sign in successful');
+                toast.success("Sign in successful.");
+                setTimeout(() => {
+                    navigate('/');;
+                }, 1000); 
+                localStorage.setItem('Neophyte_USER', JSON.stringify(responseData));
+                setIsLoggedIn(true);
+                setLoading(false);
+                // navigate('/');
+            } catch (error) {
+                console.error('Sign in error:', error.message);
+                toast.error(error.message || "Sign in error");
+                setLoading(false);
+                // Handle the error (e.g., display a notification to the user)
+            }
+        }
+    };
+    
+    
+    
 
 
     return (
@@ -105,6 +118,7 @@ function SignInPage() {
                 </div>
             </div>
             <Footer/>
+            <ToastContainer />
         </div>
     );
 }

@@ -57,7 +57,7 @@ const NavBar = () => {
             </div>
             <a href="/About" className={`nav-link ${isLargeScreen() && scrolled ? 'text-white' : 'text-dark'}`}>About</a>
           </div>
-          <div className={`social-icons ${isLargeScreen() ? 'd-lg-none' : 'd-none'} ${scrolled ? 'text-white' : 'text-dark'}`}>
+          <div className={`social-icons social-display ${isLargeScreen() ? '' : ''} ${scrolled ? 'text-white' : 'text-dark'}`}>
             {isLoggedIn ? (
               <Link className="nav-link mx-2" to="/UserInformation" id="userLink"><FaUser /></Link>
             ) : (
