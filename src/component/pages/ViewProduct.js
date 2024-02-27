@@ -63,7 +63,7 @@ function ViewProduct() {
                 <img src={`http://159.65.21.42:9000${product.image}`} alt={product.name} className='img-fluid mt-5 img' />
                 <div className="mt-5">
                     <h2 className="shop-p1x">{product.name}</h2>
-                    <p className="amt">₦ {product.price}</p>
+                    <p className="amt">$ {product.price}</p>
                     <button className="btn btn-primary text-uppercase custom-add-to-cart rounded-0" onClick={handleAddToCart}>Add to Cart</button>
                 </div>
             </div>

@@ -67,13 +67,11 @@ const ProductsSection = () => {
                     <div className="d-flex justify-content-between card-body p-3">
                       <div>
                         <p className="card-text overflow-hidden mt-2">{product.name}</p>
-                        <p className="price">${product.price}</p>
+                        <p className="price">$ {product.price}</p>
                       </div>
-                      <div className="d-flex align-items-center bg-success p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
-                                        <a href={`/ViewProduct/${product._id}`} className="text-white">
-                                            <FaArrowRight />
-                                        </a>
-                                    </div>
+                        <div className="d-flex align-items-center bg-success p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
+                            <a href={`/ViewProduct/${product._id}`} className="text-white"><FaArrowRight /></a>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -92,9 +90,9 @@ const ProductsSection = () => {
                             <div className="d-flex justify-content-between card-body p-3">
                                 <div>
                                     <p className="card-text overflow-hidden mt-2">Textured Tracksuit Set</p>
-                                    <p className="price">$620</p>
+                                    <p className="price">$ 620</p>
                                 </div>
-                                <div className="d-flex align-items-center p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
+                                <div className="d-flex align-items-center bg-success p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
                                     <FaArrowRight className="text-dark" />
                                 </div>
                             </div>
@@ -107,9 +105,9 @@ const ProductsSection = () => {
                             <div className="d-flex justify-content-between card-body p-3">
                                 <div>
                                     <p className="card-text overflow-hidden mt-2">Textured Tracksuit Set</p>
-                                    <p className="price">$620</p>
+                                    <p className="price">$ 620</p>
                                 </div>
-                                <div className="d-flex align-items-center p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
+                                <div className="d-flex align-items-center bg-success p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
                                     <FaArrowRight className="text-dark" />
                                 </div>
                             </div>
@@ -122,9 +120,9 @@ const ProductsSection = () => {
                             <div className="d-flex justify-content-between card-body p-3">
                                 <div>
                                     <p className="card-text overflow-hidden mt-2">Textured Tracksuit Set</p>
-                                    <p className="price">$620</p>
+                                    <p className="price">$ 620</p>
                                 </div>
-                                <div className="d-flex align-items-center p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
+                                <div className="d-flex align-items-center bg-success p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
                                     <FaArrowRight className="text-dark" />
                                 </div>
                             </div>
@@ -137,9 +135,9 @@ const ProductsSection = () => {
                             <div className="d-flex justify-content-between card-body p-3">
                                 <div>
                                     <p className="card-text overflow-hidden mt-2">Textured Tracksuit Set</p>
-                                    <p className="price">$620</p>
+                                    <p className="price">$ 620</p>
                                 </div>
-                                <div className="d-flex align-items-center p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
+                                <div className="d-flex align-items-center bg-success p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
                                     <FaArrowRight className="text-dark" />
                                 </div>
                             </div>

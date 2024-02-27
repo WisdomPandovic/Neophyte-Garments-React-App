@@ -43,38 +43,6 @@ const InStoreSection = () => {
             </section>
 
             <section className="container mt-5 mb-5">
-            <div className="row">
-                <div className="col-lg-6">
-                    <img src={product1} className="img-fluid rounded-4 mb-3" alt="Product 1" />
-                </div>
-        
-                <div className="col-lg-6">
-                    <h3>Wool knit</h3>
-                    <p>Soft to the touch, perfect for all seasons. Heavy weight and breathable lamb's wool pullover knit jersey.</p>
-                    <p>₦ 94352</p>
-        
-                    <div className="mb-3">
-                        <select className="form-select" id="sizeSelect" style={{ backgroundColor: '#D9D9D9' }}>
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                        </select>
-                    </div>
-        
-                    <div className="mb-3">
-                        <select className="form-select" id="colorSelect" style={{ backgroundColor: '#D9D9D9' }}>
-                            <option value="red">Red</option>
-                            <option value="blue">Blue</option>
-                            <option value="green">Green</option>
-                        </select>
-                    </div>
-        
-                    <button className="btn btn-primary w-100">Add to Cart</button>
-                </div>
-            </div>
-            </section>
-
-            <section className="container mt-5 mb-5">
                 <div className="row">
                     {products.map((product) => (
                         <div key={product.id} className='mb-5'>
@@ -86,7 +54,7 @@ const InStoreSection = () => {
                                 <div className="col-lg-6">
                                    <h3>{product.name}</h3>
                                    <p>{product.description}</p>
-                                   <p>₦{product.price}</p>
+                                   <p>$ {product.price}</p>
         
                                     <div className="mb-3">
                         <select className="form-select" id="sizeSelect" style={{ backgroundColor: '#D9D9D9' }}>
@@ -110,6 +78,38 @@ const InStoreSection = () => {
                         </div>
                     ))}
                 </div>
+            </section>
+
+            <section className="container mt-5 mb-5">
+            <div className="row">
+                <div className="col-lg-6">
+                    <img src={product1} className="img-fluid rounded-4 mb-3" alt="Product 1" />
+                </div>
+        
+                <div className="col-lg-6">
+                    <h3>Wool knit</h3>
+                    <p>Soft to the touch, perfect for all seasons. Heavy weight and breathable lamb's wool pullover knit jersey.</p>
+                    <p>$ 94352</p>
+        
+                    <div className="mb-3">
+                        <select className="form-select" id="sizeSelect" style={{ backgroundColor: '#D9D9D9' }}>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+        
+                    <div className="mb-3">
+                        <select className="form-select" id="colorSelect" style={{ backgroundColor: '#D9D9D9' }}>
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                        </select>
+                    </div>
+        
+                    <button className="btn btn-primary w-100">Add to Cart</button>
+                </div>
+            </div>
             </section>
             <ToastContainer />
         </div>

@@ -54,7 +54,7 @@ function NeophyteProvider(props) {
 
     if (checkDataExist) {
       // alert("Product already in cart");
-      toast.success("Product already in cart");
+      toast.error("Product already in cart");
       return;
     }
 

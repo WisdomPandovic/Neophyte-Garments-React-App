@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify';
 
 function UserInformation() {
     const navigate = useNavigate();
-    const { isLoggedIn, setIsLoggedIn, getCartDetails, handleCheckout } = useContext(NeophyteContext);
+    const { isLoggedIn, setIsLoggedIn, getCartDetails, handleCheckout, cart } = useContext(NeophyteContext);
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
@@ -59,27 +59,27 @@ function UserInformation() {
                             <div className="card-body">
                                 <div className="subtotal d-flex justify-content-between list-group-item">
                                     <p className="font-weight-bold card-text" id="cartItems">Number of Cart Items: </p>
-                                    <span id="cartCount"></span>
+                                    <span id="cartCount">{cart.length}</span>
                                 </div>
                                 <div className="checkout-summary">
                                     <div className="subtotal d-flex justify-content-between list-group-item">
                                         <span className="summary-label font-weight-bold">Subtotal</span>
-                                        <span className="summary-value">₦ {getCartDetails().subtotal.toFixed(2)}</span>
+                                        <span className="summary-value">$ {getCartDetails().subtotal.toFixed(2)}</span>
                                     </div>
                                     <div className="discount d-flex justify-content-between pt-3">
                                         <span className="summary-label font-weight-bold">Discount on Order</span>
-                                        <span className="summary-value">₦ -{-getCartDetails().discount.toFixed(2)}</span>
+                                        <span className="summary-value">$ -{-getCartDetails().discount.toFixed(2)}</span>
                                     </div>
                                     <div className="shipping d-flex justify-content-between pt-3">
                                         <span className="summary-label font-weight-bold">Shipping & Handling for</span>
-                                        <span className="summary-value">$0.00</span>
+                                        <span className="summary-value">$ 0.00</span>
                                     </div>
                                 </div>
                                 <hr />
                                 {/* Total */}
                                 <div className="total d-flex justify-content-between">
                                     <span className="summary-label font-weight-bold">Total</span>
-                                    <span className="summary-value">₦ {getCartDetails().total.toFixed(2)}</span>
+                                    <span className="summary-value">$ {getCartDetails().total.toFixed(2)}</span>
                                 </div>
                                 <div className="user-button">
                                 <button className="btn btn-success ml-5" onClick={handleCheckout}>Checkout</button>

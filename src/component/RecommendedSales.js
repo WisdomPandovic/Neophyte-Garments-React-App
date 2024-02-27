@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,  useContext } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { FaHeart } from 'react-icons/fa';
+import { NeophyteContext } from "../component/Context/NeophyteContext";
 
 const RecommendedSales = () => {
-
+    const { addToCart} = useContext(NeophyteContext);
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -29,6 +30,12 @@ const RecommendedSales = () => {
       fetchProducts();
     }, []);
 
+    const handleAddToCart = (productId) => {
+        const clickedProduct = products.find(product => product._id === productId);
+        addToCart(clickedProduct);
+    };
+
+   
     return (
         <div>
             <section className="custom-width-section py-5 category">
@@ -70,11 +77,11 @@ const RecommendedSales = () => {
                         <div key={product.id} className="col-lg-6 col-md-6 mb-4">
                             <div className="h-100 position-relative"> 
                                 <img src={`http://159.65.21.42:9000${product.image}`} alt={product.name} className='d-block w-100 custom-image-ratio' /> 
-                                <FaHeart className="heart-icon" />
+                                <FaHeart className="heart-icon" onClick={() => handleAddToCart(product._id)}/>
                                 <div className="d-flex justify-content-between card-body p-3 mb-4">
                                     <div>
                                         <p className="card-text overflow-hidden mt-2">{product.name}</p>
-                                        <p className="price">${product.price}</p>
+                                        <p className="price">$ {product.price}</p>
                                     </div>
 
                                     <div className="d-flex align-items-center bg-success p-3 rounded-circle" style={{ width: "50px", height: "50px" }}>
